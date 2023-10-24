@@ -17,6 +17,7 @@ public:
         int i = 0, j = nums.size() - 1;
         int k = nums.size() - 1;
         vector<int> res(nums.size(), 0);
+        // 最大的平方元素出现在数组的两端
         for(i, j; i <= j; )
         {
             if(nums[i] * nums[i] < nums[j] * nums[j])
