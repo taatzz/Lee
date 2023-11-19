@@ -50,46 +50,73 @@
 
 using namespace std;
 
+// class Solution {
+// public:
+//     vector<string> findHighAccessEmployees(vector<vector<string>>& a) {
+//         int n = a.size();
+//         vector<string> ans;
+//         sort(a.begin(),a.end());
+        
+        
+//         int start = 0x3f3f3f3f, res = 1;
+//         for(int i = 0; i < n - 1; i++)
+//         {
+//             int j = i + 1;
+//             for(; j < n; j++)
+//             {
+//                 if(a[j][0] == a[i][0])
+//                 {
+//                     int time1 = stoi(a[j][1]), time2 = stoi(a[i][1]);
+//                     start = min(start, min(time1, time2));
+//                     if(max(time1,time2) < start + 100)
+//                         res++;
+//                     else
+//                     {
+//                         start = 0x3f3f3f3f; 
+//                         i++;
+//                     }
+//                 }
+//                 else break;
+//                 //cout << res << " ";
+//                 if(ans.size() == 0 && res == 3 || ans.size() > 0 && res == 3 && ans.back() != a[i][0]) // 跨越时间的不算
+//                     ans.push_back(a[i][0]);
+//             }
+//             start = 0x3f3f3f3f, res = 1;
+//             i = j - 1;
+//         }
+
+//         return ans;
+//     }
+// };
+
+
+
 class Solution {
 public:
-    vector<string> findHighAccessEmployees(vector<vector<string>>& a) {
-        int n = a.size();
-        vector<string> ans;
-        sort(a.begin(),a.end());
-        
-        
-        int start = 0x3f3f3f3f, res = 1;
-        for(int i = 0; i < n - 1; i++)
+    int findMinimumOperations(string s1, string s2, string s3) {
+        int n1 = s1.size(), n2 = s2.size(), n3 = s3.size();
+        int maxnum = min(n1, min(n2, n3));
+
+        int res = 0, i = 0;
+        for(i = 0; i < maxnum; i++)
         {
-            int j = i + 1;
-            for(; j < n; j++)
+            if(i == 0 && s1[i] != s2[i])
+                return -1;
+            if(s1[i] == s2[i] == s3[i])
             {
-                if(a[j][0] == a[i][0])
-                {
-                    int time1 = stoi(a[j][1]), time2 = stoi(a[i][1]);
-                    start = min(start, min(time1, time2));
-                    if(max(time1,time2) < start + 100)
-                        res++;
-                    else
-                    {
-                        start = 0x3f3f3f3f; 
-                        i++;
-                    }
-                }
-                else break;
-                //cout << res << " ";
-                if(ans.size() == 0 && res == 3 || ans.size() > 0 && res == 3 && ans.back() != a[i][0]) // 跨越时间的不算
-                    ans.push_back(a[i][0]);
+                continue;
             }
-            start = 0x3f3f3f3f, res = 1;
-            i = j - 1;
+            else 
+            {
+                break;
+            }
         }
 
-        return ans;
+        if(n1 > i) res += n1 - i;
+        if(n2 > i) res += n2 - i;
+        if(n3 > i) res += n3 - i; 
+
+        return res;
     }
 };
-
-
-
-
 
