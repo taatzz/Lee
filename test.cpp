@@ -91,32 +91,48 @@ using namespace std;
 
 
 
-class Solution {
-public:
-    int findMinimumOperations(string s1, string s2, string s3) {
-        int n1 = s1.size(), n2 = s2.size(), n3 = s3.size();
-        int maxnum = min(n1, min(n2, n3));
+// class Solution {
+// public:
+//     int findMinimumOperations(string s1, string s2, string s3) {
+//         int n1 = s1.size(), n2 = s2.size(), n3 = s3.size();
+//         int maxnum = min(n1, min(n2, n3));
 
-        int res = 0, i = 0;
-        for(i = 0; i < maxnum; i++)
-        {
-            if(i == 0 && s1[i] != s2[i])
-                return -1;
-            if(s1[i] == s2[i] == s3[i])
-            {
-                continue;
-            }
-            else 
-            {
-                break;
-            }
-        }
+//         int res = 0, i = 0;
+//         for(i = 0; i < maxnum; i++)
+//         {
+//             if(i == 0 && s1[i] != s2[i])
+//                 return -1;
+//             if(s1[i] == s2[i] == s3[i])
+//             {
+//                 continue;
+//             }
+//             else 
+//             {
+//                 break;
+//             }
+//         }
 
-        if(n1 > i) res += n1 - i;
-        if(n2 > i) res += n2 - i;
-        if(n3 > i) res += n3 - i; 
+//         if(n1 > i) res += n1 - i;
+//         if(n2 > i) res += n2 - i;
+//         if(n3 > i) res += n3 - i; 
 
-        return res;
-    }
-};
+//         return res;
+//     }
+// };
+
+
+
+// class Solution {
+// public:
+//     vector<int> findPeaks(vector<int>& mountain) {
+//         vector<int> res;
+//         int n = mountain.size();
+
+//         for(int i = 1; i < n - 1; i ++)
+//             if(mountain[i] > mountain[i - 1] && mountain[i] > mountain[i + 1])
+//                 res.push_back(i);
+
+//         return res;
+//     }
+// };
 
