@@ -136,3 +136,80 @@ using namespace std;
 //     }
 // };
 
+// class Solution {
+// public:
+//     int countTestedDevices(vector<int>& nums) {
+//         int n = nums.size(), res = 0, prev = 0;
+
+//         for(int i = 0; i < n; i++)
+//         {
+//             if(nums[i] + prev > 0)
+//             {
+//                 res++;
+//                 prev -= 1;
+//             }
+//         }
+
+//         return res;
+//     }
+// };
+
+
+// class Solution {
+// public:
+//     typedef long long LL;
+//     LL qmi(int a, int b, int p)
+//     {
+//         LL res = 1;
+//         while(b)
+//         {
+//             if(b & 1) res = res * a % p;
+//             b >>= 1;
+//             a = (LL)a * a % p;
+//         }
+
+//         return res;
+//     }
+
+//     vector<int> getGoodIndices(vector<vector<int>>& variables, int target) {
+
+//         vector<int> res;
+//         int i = 0;
+//         for(auto e : variables)
+//         {
+//             int a = e[0], b = e[1], c = e[2], m = e[3];
+//             LL t = qmi(a, b, 10);
+//             if(qmi(t, c, m) == target) res.push_back(i);
+//             i++
+//         }
+
+//         return res;
+//     }
+// };
+
+
+// class Solution {
+// public:
+//     static const int N = 1000010;
+//     int a[N];
+
+//     long long countSubarrays(vector<int>& nums, int k) {
+//         int n = nums.size();
+//         long long res = 0;
+//         int maxnum = 0;
+
+//         int i = 0, j = 0;
+//         for(; i < n; i++)
+//         {
+//             a[nums[i]]++;
+//             maxnum = max(maxnum, nums[i]);
+//             while(i < j && a[maxnum] >= k)
+//             {
+//                 a[nums[j++]]--;
+//                 res += n - i;
+//             }
+//         }
+
+//         return res;
+//     }
+// };
