@@ -213,3 +213,58 @@ using namespace std;
 //         return res;
 //     }
 // };
+
+
+// class Solution {
+// public:
+//     static const int N = 2510;
+//     int cnt[N];
+
+//     vector<int> findMissingAndRepeatedValues(vector<vector<int>>& grid) {
+//         int m = grid.size(), n = grid[0].size();
+
+//         for(int i = 0; i < m; i++)
+//         {
+//             for(int j = 0; j < n; j++)
+//             {
+//                 cnt[grid[i][j]] ++;
+//             }
+//         }
+
+//         vector<int> res(2);
+//         for(int i = 1; i <= n * n; i++)
+//         {
+//             if(cnt[i] > 1) res[0] = i;
+//             else if (cnt[i] < 1) res[1] = i;
+//         }
+
+//         return res;
+//     }
+// };
+
+// class Solution {
+// public:
+//     vector<vector<int>> divideArray(vector<int>& nums, int k) {
+//         int n = nums.size();
+//         sort(nums.begin(), nums.end());
+
+//         vector<vector<int>> res;
+//         for(int i = 2; i < n; i+= 3)
+//         {
+//             int j = i - 3 + 1;
+//             if(nums[j + 1] - nums[j] <= k && nums[i] - nums[j] <= k && nums[i] - nums[j + 1] <= k)
+//             {
+//                 vector<int> tmp(3);
+//                 tmp[0] = nums[j], tmp[1] = nums[j + 1], tmp[2] = nums[i];
+//                 res.push_back(tmp);
+//             }
+//         }
+        // if(res.size() * 3 < n)
+        // {
+        //     res.clear();
+        //     return res;
+        // }
+
+//         return res;
+//     }
+// };
