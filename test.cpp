@@ -268,3 +268,36 @@ using namespace std;
 //         return res;
 //     }
 // };
+
+// class Solution {
+// public:
+//     vector<int> numberGame(vector<int>& nums) {
+//         priority_queue<int, vector<int>, greater<int>> q(nums.begin(), nums.end());
+
+//         vector<int> res;
+
+//         while(q.size())
+//         {       
+//                 int t1 = 0, t2 = 0;
+//                 if(q.size())
+//                 {
+//                         t1 = q.top();
+//                         q.pop();
+//                 }
+//                 if(q.size())
+//                 {
+//                         t2 = q.top();
+//                         q.pop();
+//                 }
+                
+//                 if(t2)
+//                         res.push_back(t2);
+//                 if(t1)
+//                         res.push_back(t1);
+//         }
+
+//         return res;
+//     }
+// };
+
+
