@@ -301,3 +301,70 @@ using namespace std;
 // };
 
 
+// class Solution {
+// public:
+//     bool hasTrailingZeros(vector<int>& nums) {
+//         int n = nums.size();
+//         for(int i = 0; i < n; i++)     
+//         {
+//                 for(int j = i + 1; j < n; j++)
+//                 {
+//                         int t = nums[i] | nums[j];
+//                         if((t & 1) == 0) return true;
+//                 }
+//         }
+
+//         return false;
+//     }
+// };
+
+
+// class Solution {
+// public:
+//     static const int N = 30;
+//     bool st[N];
+//     bool check(string s, int x)
+//     {
+//         memset(st, 0, sizeof st);
+//         int n = s.size();
+
+//         for(int i = 0; i < n; i++) 
+//         {
+//             if(st[s[i] - 'a'] == 0)
+//             {
+//                 int k = i;
+//                 char c = s[i];
+//                 int cnt = 0;
+//                 while(k < n)
+//                 {
+//                     if(s[k] == c)
+//                     {
+//                         int start = k;
+//                         k++;
+//                         while(k < n && s[k] == s[start]) k++;
+
+//                         if(k - start >= x) cnt += k - start - x + 1;
+//                         if(cnt >= 3) return true;
+//                     }
+//                     else k++;
+//                 }
+//             }
+//             st[s[i] - 'a'] = 1;
+//         }
+//         return false;
+//     }
+
+//     int maximumLength(string s) {
+//         int n = s.size();
+        
+//         int l = 0, r = n;
+//         while(l < r)
+//         {
+//             int mid = (l + r + 1) >> 1;
+//             if(check(s, mid)) l = mid;
+//             else r = mid - 1;
+//         }
+
+//         return l == 0 ? -1 : l;
+//     }
+// };
