@@ -10,6 +10,7 @@
 
 using namespace std;
 
+// T1
 // class Solution {
 // public:
     
@@ -29,42 +30,38 @@ using namespace std;
 // };
 
 
+// T2 分组循环
 class Solution {
 public:
-    static const int N = 1010;
-    int p[N];
-    
-    int count(int x)
+    int find(int x)
     {
         int cnt = 0;
-        for(int i = 0; i <= 8; i++)
+        while(x)
         {
-            if((x & (1 << i)) == (1 << i))
-                cnt++;
+            cnt++;
+            x -= (x & -x);
         }
-        
+
         return cnt;
     }
-    
+
     bool canSortArray(vector<int>& nums) {
-        vector<int> t = nums;
-        sort(nums.begin(), nums.end());
         int n = nums.size();
-        
-        for(int i = 0; i < n - 1; i++) 
+        vector<int> t = nums;
+        sort(t.begin(), t.end());
+
+        int i = 0;
+        while(i < n)
         {
-            int a = count(nums[i]), b = count(nums[i + 1]);
-            if(a == b)
-                p[i] = p[i + 1] = 1;
+            int start = i, k = find(nums[start]);
+            i++;
+            while(i < n && find(nums[i]) == k) i++;
+            sort(nums.begin() + start, nums.begin() + i);
         }
-        
-        for(int i = 0; i < n - 1; i++)
-        {
-            if(nums[i] == t[i]) continue;
-            int a = count(nums[i]), b = count(t[i]);
-            if(a != b || p[i] != 1) return false;
-        }
-        
+
+        for(int i = 0; i < n; i++) 
+            if(t[i] != nums[i]) return false;
+
         return true;
     }
 };
