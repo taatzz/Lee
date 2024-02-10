@@ -7,7 +7,8 @@
         "cmath": "cpp",
         "numeric": "cpp",
         "ostream": "cpp",
-        "string": "cpp"
+        "string": "cpp",
+        "unordered_set": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }
