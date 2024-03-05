@@ -7,6 +7,8 @@
 // @lc code=start
 
 // Definition for a binary tree node.
+#include <iostream>
+using namespace std;
 struct TreeNode {
     int val;
     TreeNode *left;
@@ -20,9 +22,9 @@ class Solution {
 public:
     int res = 0;
 
-    tuple<int, int ,int> dfs(TreeNode* root)
+    tuple<int, int, int> dfs(TreeNode* root)
     {
-        if(!root) return {INT_MAX, INT_MIN, 0};
+        if(!root) return { INT_MAX, INT_MIN, 0 };
 
         auto [l_min, l_max, l_sum] = dfs(root->left);
         auto [r_min, r_max, r_sum] = dfs(root->right);
