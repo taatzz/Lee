@@ -8,7 +8,6 @@
 #include <vector>
 #include <unordered_map>
 #include <queue>
-
 using namespace std;
 
 class Solution {
@@ -22,6 +21,7 @@ public:
             for(auto& e : routes[i])
                 h[e].push_back(i);
         }
+
 
         vector<bool> st(routes.size(), 0);
         queue<int> q;
