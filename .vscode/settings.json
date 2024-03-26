@@ -11,7 +11,8 @@
         "unordered_set": "cpp",
         "array": "cpp",
         "initializer_list": "cpp",
-        "utility": "cpp"
+        "utility": "cpp",
+        "algorithm": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }
