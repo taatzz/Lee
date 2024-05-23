@@ -15,7 +15,8 @@
         "algorithm": "cpp",
         "iosfwd": "cpp",
         "sstream": "cpp",
-        "deque": "cpp"
+        "deque": "cpp",
+        "functional": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }
