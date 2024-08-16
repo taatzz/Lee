@@ -1,0 +1,29 @@
+zclass Solution {
+public:
+    int minimumValueSum(vector<int>& nums, vector<int>& arr) {
+        int n = nums.size(), INF = INT_MAX / 2, m = arr.size();
+        map<array<int, 3>, int> mem;
+        auto dfs = [&](auto&& dfs, int i, int j, int p)
+        {
+            if(n - i < m - j) return INF;
+            if(j == m)
+            {
+                return i == n ? 0 : INF;
+            }
+            
+            p &= nums[i];
+            array<int, 3> t = {i, j, p};
+
+            if(mem.contains(t)) return mem[t];
+
+            int res = dfs(dfs, i + 1, j, p);
+            if(p == arr[j])
+                res = min(res, dfs(dfs, i + 1, j + 1, -1) + nums[i]);
+
+            return mem[t] = res;
+        };
+        int res = dfs(dfs, 0, 0, -1);
+
+        return res < INF ? res : -1;
+    }
+};
