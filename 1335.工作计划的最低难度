@@ -1,0 +1,35 @@
+class Solution {
+public:
+    int minDifficulty(vector<int>& nums, int k) {
+        if(nums.size() < k) return -1;
+
+        int n = nums.size(), INF = INT_MAX / 2;
+
+        int mem[n + 1][k + 1];
+        memset(mem, -1, sizeof mem);
+
+        auto dfs = [&](auto&& dfs, int i, int k)->int
+        {
+            if(mem[i][k] != -1) return mem[i][k];
+            int mx = 0;
+            if(k == 0)
+            {
+                for(int j = i; j < n; j++)
+                    mx = max(mx, nums[j]);
+                return mx;
+            }
+            
+            int res = INF;
+            for(int j = i; j < n; j++)
+            {
+                mx = max(mx, nums[j]);
+
+                res = min(res, dfs(dfs, j + 1, k - 1) + mx);
+            }
+
+            return mem[i][k] = res;
+        };
+
+        return dfs(dfs, 0, k);
+    }
+};
